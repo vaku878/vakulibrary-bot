@@ -11,6 +11,21 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <telegram.version>5.7.1</telegram.version>
     </properties>
+
+    <dependencies>
+    <!-- Telegram API -->
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>${telegram.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambotsextensions</artifactId>
+            <version>${telegram.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
