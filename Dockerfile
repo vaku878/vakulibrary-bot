@@ -6,9 +6,10 @@ FROM maven:3.8.5-jdk-11-slim as build
 WORKDIR /app
 COPY --from=clone /app/vakulibrary-bot/ /app
 RUN mvn install
+CMD ["ls", "/app/target"]
 
 FROM openjdk:11-slim
 CMD ["java", "-version"]
 WORKDIR /app
-COPY --from=build /app/target/vakulibrary_bot-1.0-SNAPSHOT.jar /app/vakulibrary_bot-1.0-SNAPSHOT.jar
+COPY --from=build /app/target/vakulibrary_bot-1.0-SNAPSHOT-exec.jar /app/vakulibrary_bot-1.0-SNAPSHOT.jar
 CMD ["java", "-jar", "/app/vakulibrary_bot-1.0-SNAPSHOT.jar"]
