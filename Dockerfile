@@ -6,7 +6,6 @@ FROM maven:3.8.5-jdk-11-slim as build
 WORKDIR /app
 COPY --from=clone /app/vakulibrary-bot/ /app
 RUN mvn compile assembly:single
-CMD ["ls", "/app/target"]
 
 FROM openjdk:11-slim
 CMD ["java", "-version"]
