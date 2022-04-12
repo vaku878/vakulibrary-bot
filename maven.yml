@@ -3,8 +3,15 @@ name: Maven Package
 on:
   push:
     branches: [ feature/VB-17 ]
+    tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ feature/VB-17 ]
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
@@ -13,6 +20,8 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
+
 
     steps:
       - uses: actions/checkout@v3
@@ -26,8 +35,3 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml
-
-      - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
