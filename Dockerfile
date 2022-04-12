@@ -10,5 +10,5 @@ RUN mvn clean compile assembly:single
 FROM openjdk:11-slim
 CMD ["java", "-version"]
 WORKDIR /app
-COPY --from=build /app/target/vakulibrary_bot-1.0-SNAPSHOT-jar-with-dependencies.jar /app/vakulibrary_bot.jar
+COPY --from=build /app/target/vakulibrary_bot-1.0-SNAPSHOT.jar /app/vakulibrary_bot.jar
 CMD ["java", "-jar", "/app/vakulibrary_bot.jar"]
