@@ -11,4 +11,4 @@ FROM openjdk:11-slim
 CMD ["java", "-version"]
 WORKDIR /app3
 COPY --from=build /app2/target/vakulibrary_bot-1.0-SNAPSHOT.jar /app3/vakulibrary_bot-1.0-SNAPSHOT.jar
-CMD ["java", "-jar", "/app/vakulibrary_bot-1.0-SNAPSHOT.jar.jar"]
+CMD ["java", "-jar", "/app3/vakulibrary_bot-1.0-SNAPSHOT.jar.jar"]
