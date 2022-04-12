@@ -5,7 +5,7 @@ RUN git clone https://github.com/vaku878/vakulibrary-bot.git
 FROM maven:3.8.5-jdk-11 as build
 WORKDIR /app2
 COPY --from=clone /app1/vakulibrary-bot/ /app2
-RUN mvn clean compile assembly:single
+RUN mvn -B package --file pom.xml
 
 FROM openjdk:11-slim
 CMD ["java", "-version"]
