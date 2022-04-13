@@ -32,12 +32,3 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: ls -a via ssh
-        uses: fifsky/ssh-action@master
-        with:
-          command: ls
-          host: ${{ secrets.HOST }}
-          user: ${{ secrets.USER}}
-          key: ${{ secrets.KEY}}
-          pass: ${{ secrets.PASSWORD}}
