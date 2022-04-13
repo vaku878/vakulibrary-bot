@@ -2,9 +2,9 @@ name: Java CI with Maven vs Docker
 
 on:
   push:
-    branches: [ ci-finish ]
+    branches: [ master ]
   pull_request:
-    branches: [ ci-finish ]
+    branches: [ master ]
 
 jobs:
   build:
