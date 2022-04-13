@@ -36,10 +36,8 @@ jobs:
       - name: ls -a via ssh
         uses: fifsky/ssh-action@master
         with:
-          command: |
-            cd /tmp
-            ls -a
+          command: sh /home/deploy.sh
           host: ${{ secrets.HOST }}
-          user: root
+          user: ${{ secrets.USER}}
           key: ${{ secrets.KEY}}
           pass: ${{ secrets.PASSWORD}}
