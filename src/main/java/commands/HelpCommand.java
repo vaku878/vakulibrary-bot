@@ -14,7 +14,7 @@ public class HelpCommand extends Command {
     @Override
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         if (checkAccess(user.getId())) {
-            sendAnswer(absSender, chat.getId(), "Здесь будут правила");
+            sendAnswer(absSender, chat.getId(), "Бла бла бла");
         }
     }
 }
